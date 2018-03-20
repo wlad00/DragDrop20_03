@@ -1,0 +1,53 @@
+/* Styles go here */
+
+.gm-drag-element {
+    opacity: 0.3;
+}
+
+.gm-dragging {
+    background-color: lightgrey;
+}
+
+.gm-drag-handle {
+    cursor: grab;
+}
+
+.panel.gm-dropping {
+    box-shadow: 0px 0px 2px black;
+}
+.div{
+    width: 100px;
+    height: 100px;
+    border:solid 1px;
+}
+
+.pyramid-container{
+
+height: 300px;
+    width: 500px;
+    border: solid 1px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pyramid{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: solid 1px;
+    /*position: absolute;*/
+}
+
+.block1{
+    top: 30px;
+    left:200px;
+}
+.block2{
+    top: 80px;
+    left: 50px;
+}
+.block3{
+    top: 100px;
+    left: 350px;
+}

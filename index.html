@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="gm.dragDrop.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body ng-app='app'>
+    <div class='container'>
+        <h1>gm.dragDrop Demo</h1>
+
+        <!--<div>--> <!--class="pyramid-container" >-->
+
+
+            <!--================== PYRAMID =====================-->
+
+            <div class="pyramid block2"
+                gm-on-drop='getDropHandler(leftZone)'
+                gm-drop-zone='left'>2
+
+                <ul class='list-group'>
+                    <li class='list-group-item' ng-repeat='item in leftZone.items' gm-draggable='{ category: leftZone, item: item }'>{{item.name}}</li>
+                </ul>
+            </div>
+
+
+            <div class="pyramid block3"
+                gm-on-drop='getDropHandler(rightZone)'
+                gm-drop-zone='right'>3
+                <ul class='list-group'>
+                    <li class='list-group-item' ng-repeat='item in rightZone.items' gm-draggable='{ category: rightZone, item: item }'>{{item.name}}</li>
+                </ul>
+            </div>
+
+        <!--</div>-->
+
+        <div class= "div" gm-on-drop='getDropHandler(leftZone)'>
+
+            new div
+        </div>
+<!--=============== LEFT AND RIGHT =================-->
+        <div class='row'>
+
+            <div class='col-xs-6'>
+                <!-- class='panel panel-default'-->
+                <div class='panel panel-default'
+
+                     gm-on-drop='getDropHandler(leftZone)'
+                     gm-drop-zone='left'>
+
+
+                    <div class='panel-heading'>
+                        <span class='panel-title'>Left</span>
+                    </div>
+
+                    <ul class='list-group'>
+                        <li class='list-group-item' ng-repeat='item in leftZone.items' gm-draggable='{ category: leftZone, item: item }' >
+
+                                                {{item.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class='col-xs-6'>
+                <div class='panel panel-default' gm-on-drop='getDropHandler(rightZone)' gm-drop-zone='right'>
+                    <div class='panel-heading'>
+                        <span class='panel-title'>Right</span>
+                    </div>
+                    <ul class='list-group'>
+                        <li class='list-group-item' ng-repeat='item in rightZone.items' gm-draggable='{ category: rightZone, item: item }'>{{item.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--================== ROWS ========================-->
+
+        <div class='panel panel-default' gm-on-drop='getDropHandler(mixedZone)'>
+            <div class='panel-heading'>
+                <span class='panel-title'>Mixed</span>
+            </div>
+            <ul class='list-group'>
+                <li class='list-group-item' ng-repeat='item in mixedZone.items' gm-draggable='{ category: mixedZone, item: item }' gm-drop-zone='{{item.zone}}'>{{item.name}}</li>
+            </ul>
+        </div>
+
+
+        <h4>Categories11</h4>
+
+
+
+
+
+
+
+        <!--<div class='panel panel-default'
+             ng-repeat='category in categories'
+             gm-on-drop='getDropHandler(category)'>
+
+
+            <div class='panel-heading'>
+                <span class='panel-title'>Category {{$index + 1}}</span>
+            </div>
+
+
+            <ul class='list-group'>
+                <li class='list-group-item'
+                    ng-repeat='item in category.items'
+                    gm-draggable='{ category: category, item: item }'>
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>-->
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
