@@ -11,36 +11,30 @@
     function run($rootScope, $filter) {
 
 
-        $rootScope.rowsPlace = {
-            items: [
+        $rootScope.rowsPlace =  [
                 { name: "An1lorem lorem lorem lorem loremAn1lorem lorem lorem lorem loremAn1lorem lorem lorem lorem lorem eee", number: 1},
                 { name: "An2", number: 2 },
                 { name: "An3", number: 3 },
                 { name: "An4", number: 4 },
                 { name: "An6", number: 6 },
                 { name: "An5", number: 5 }
-            ]
-        };
+            ];
 
 
 
-        $rootScope.leftZone = {
-            items: []
-        };
+        $rootScope.leftZone =[];
 
-        $rootScope.rightZone = {
-            items: []
-        };
+        $rootScope.rightZone = [];
 
-        $rootScope.getDropHandler = function(dragPlace) {
+        $rootScope.getDropHandler = function(putPlace) {
             return function(dragOb) {
 
-                if(dragPlace.items.indexOf(dragOb.item) < 0) {
+                if(putPlace.indexOf(dragOb.item) < 0) {
 
-                    dragOb.dropPlace.items.splice
-                    (dragOb.dropPlace.items.indexOf(dragOb.item), 1);
+                    dragOb.dragPlace.splice
+                    (dragOb.dragPlace.indexOf(dragOb.item), 1);
 
-                    dragPlace.items.push(dragOb.item);
+                    putPlace.push(dragOb.item);
 
                     return true;  // Returning truthy value since we're modifying the view model
                 }
