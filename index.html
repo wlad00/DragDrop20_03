@@ -25,7 +25,7 @@
                  <!--gm-drop-zone='left'-->
 
                 <ul class='list-group'>
-                    <li class='list-group-item' ng-repeat='item in leftZone.items' gm-draggable='{ category: leftZone, item: item }'>{{item.name}}</li>
+                    <li class='list-group-item' ng-repeat='item in leftZone.items' gm-draggable='{ dropPlace: leftZone, item: item }'>{{item.name}}</li>
                 </ul>
             </div>
 
@@ -35,7 +35,7 @@
                  <!--gm-drop-zone='right'-->
 
                 <ul class='list-group'>
-                    <li class='list-group-item' ng-repeat='item in rightZone.items' gm-draggable='{ category: rightZone, item: item }'>{{item.name}}</li>
+                    <li class='list-group-item' ng-repeat='item in rightZone.items' gm-draggable='{ dropPlace: rightZone, item: item }'>{{item.name}}</li>
                 </ul>
             </div>
         </div>
@@ -44,15 +44,15 @@
 
         <!--================== ROWS ========================-->
 
-        <div class='panel panel-default' gm-on-drop='getDropHandler(mixedZone)'>
+        <div class='panel panel-default' gm-on-drop='getDropHandler(rowsPlace)'>
             <div class='panel-heading'>
-                <span class='panel-title'>Mixed</span>
+                <span class='panel-title'>rowsPlace</span>
             </div>
             <ul class='list-group'>
-                <li class='list-group-item'
-                    ng-repeat="item in mixedZone.items | orderBy:'number'"
-                gm-draggable='{ category: mixedZone, item: item }' >
-                    <div class="pull-left gm-drag-handle">
+                <li class='list-group-item gm-drag-handle'
+                    ng-repeat="item in rowsPlace.items | orderBy:'number'"
+                    gm-draggable='{ dropPlace: rowsPlace, item: item }' >
+                    <div class="pull-left ">
                         <span class="glyphicon glyphicon-move"></span>
                     </div>
                     <span style="margin-left:20px;">
