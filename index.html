@@ -11,17 +11,18 @@
 </head>
 
 <body ng-app='app'>
-    <div class='container'>
+<div class="container">
+    <div class='ranking-pyramid'>
         <h1>gm.dragDrop Demo</h1>
 
         <!--<div>--> <!--class="pyramid-container" >-->
 
 
-            <!--================== PYRAMID =====================-->
-
+        <!--================== PYRAMID =====================-->
+        <div class="pyramid-container">
             <div class="pyramid block2"
-                gm-on-drop='getDropHandler(leftZone)'
-                gm-drop-zone='left'>2
+                 gm-on-drop='getDropHandler(leftZone)'>2
+                 <!--gm-drop-zone='left'-->
 
                 <ul class='list-group'>
                     <li class='list-group-item' ng-repeat='item in leftZone.items' gm-draggable='{ category: leftZone, item: item }'>{{item.name}}</li>
@@ -30,54 +31,16 @@
 
 
             <div class="pyramid block3"
-                gm-on-drop='getDropHandler(rightZone)'
-                gm-drop-zone='right'>3
+                 gm-on-drop='getDropHandler(rightZone)'>3
+                 <!--gm-drop-zone='right'-->
+
                 <ul class='list-group'>
                     <li class='list-group-item' ng-repeat='item in rightZone.items' gm-draggable='{ category: rightZone, item: item }'>{{item.name}}</li>
                 </ul>
             </div>
-
-        <!--</div>-->
-
-        <div class= "div" gm-on-drop='getDropHandler(leftZone)'>
-
-            new div
         </div>
-<!--=============== LEFT AND RIGHT =================-->
-        <div class='row'>
-
-            <div class='col-xs-6'>
-                <!-- class='panel panel-default'-->
-                <div class='panel panel-default'
-
-                     gm-on-drop='getDropHandler(leftZone)'
-                     gm-drop-zone='left'>
 
 
-                    <div class='panel-heading'>
-                        <span class='panel-title'>Left</span>
-                    </div>
-
-                    <ul class='list-group'>
-                        <li class='list-group-item' ng-repeat='item in leftZone.items' gm-draggable='{ category: leftZone, item: item }' >
-
-                                                {{item.name}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class='col-xs-6'>
-                <div class='panel panel-default' gm-on-drop='getDropHandler(rightZone)' gm-drop-zone='right'>
-                    <div class='panel-heading'>
-                        <span class='panel-title'>Right</span>
-                    </div>
-                    <ul class='list-group'>
-                        <li class='list-group-item' ng-repeat='item in rightZone.items' gm-draggable='{ category: rightZone, item: item }'>{{item.name}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
         <!--================== ROWS ========================-->
 
@@ -86,7 +49,17 @@
                 <span class='panel-title'>Mixed</span>
             </div>
             <ul class='list-group'>
-                <li class='list-group-item' ng-repeat='item in mixedZone.items' gm-draggable='{ category: mixedZone, item: item }' gm-drop-zone='{{item.zone}}'>{{item.name}}</li>
+                <li class='list-group-item'
+                    ng-repeat="item in mixedZone.items | orderBy:'number'"
+                gm-draggable='{ category: mixedZone, item: item }' >
+                    <div class="pull-left gm-drag-handle">
+                        <span class="glyphicon glyphicon-move"></span>
+                    </div>
+                    <span style="margin-left:20px;">
+
+                        {{item.name}}
+                    </span>
+                </li>
             </ul>
         </div>
 
@@ -119,6 +92,8 @@
         </div>-->
 
     </div>
+</div>
+
 </body>
 </html>
 
