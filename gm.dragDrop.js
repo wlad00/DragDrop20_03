@@ -125,7 +125,7 @@
 
 
 
-            element.on('mouseover', function() { console.log('gmOnDrop 1)over');
+            element.on('mouseover', function() {
                 if(!dragOb){
                     return;
                     console.log('!obj :over');
@@ -136,7 +136,7 @@
                 }
             });
 
-            element.on('mouseout', function() { console.log('gmOnDrop 2)out');
+            element.on('mouseout', function() {
                 if(!dragOb) {
 
                     return;

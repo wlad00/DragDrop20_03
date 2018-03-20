@@ -9,7 +9,7 @@
         .run(run);
 
     function run($rootScope, $filter) {
-        $rootScope.categories = [
+        /*$rootScope.categories = [
             {
                 items: [ { name: "Item 1" } ]
             },
@@ -37,22 +37,11 @@
                 order: 3,
                 value: "Three"
             }
-        ];
-
-        $rootScope.mixedZone = {
-            items: [
-                { name: "Left", zone: "left" },
-                { name: "Right", zone: "right" },
-                { name: "Left", zone: "left" },
-                { name: "Right", zone: "right" },
-                { name: "Left", zone: "left" },
-                { name: "Right", zone: "right" }
-            ]
-        };
-
-        $rootScope.onHover = function(item) {
+        ];*/
 
 
+
+        /*$rootScope.onHover = function(item) {
 
             return function(dragItem, mouseEvent) {
 
@@ -62,9 +51,9 @@
                     dragItem.order =
                         item.order + ((mouseEvent.offsetY || -1) > 0 ? 0.5 : -0.5)
             }
-        }
+        }*/
 
-        $rootScope.reorder = function reorder() {
+        /*$rootScope.reorder = function reorder() {
 
             console.log('reorder');
 
@@ -72,30 +61,46 @@
             for(var i = 0; i < _orderedItems.length; i++) {
                 _orderedItems[i].number = _orderedItems[i].order = i + 1;
             }
-        }
+        }*/
 
-        $rootScope.reset = function reset(droppedItem) {
+        /*$rootScope.reset = function reset(droppedItem) {
 
             console.log('reset');
 
             droppedItem.order = droppedItem.number;
         }
-
+*/
         $rootScope.leftZone = {
+            items: []
+        };
+
+        $rootScope.rankArr = {
             items: [
-                { name: "Left", zone: "left" }
+                { id: 11, name: "An1", zone: "left" },
+                { id: 12, name: "An2", zone: "right" },
+                { id: 13, name: "An3", zone: "left" },
+                { id: 14, name: "An4", zone: "right" },
+                { id: 15, name: "An5", zone: "left" },
+                { id: 16, name: "An6", zone: "right" }
             ]
         };
+
+
+
 
         $rootScope.rightZone = {
             items: []
         };
 
-        $rootScope.getDropHandler = function(category) {
+        $rootScope.getDropHandler = function(rankArr) {
             return function(dragOb) {
-                if(category.items.indexOf(dragOb.item) < 0) {
+
+                if(rankArr.items.indexOf(dragOb.item) < 0) {
+
                     dragOb.category.items.splice(dragOb.category.items.indexOf(dragOb.item), 1);
+
                     category.items.push(dragOb.item);
+
                     return true;  // Returning truthy value since we're modifying the view model
                 }
 
