@@ -20,38 +20,63 @@
 
         <!--================== PYRAMID =====================-->
         <div class="pyramid-container">
-            <div class="pyramid block2"
-                 gm-on-drop='getDropHandler(leftZone)'>2
+            <div class="pyramid firstZone"
+                 gm-on-drop='moveRowTo(true, firstZone[0])'>
                  <!--gm-drop-zone='left'-->
 
                 <ul class='list-group'>
-                    <li class='list-group-item' ng-repeat='item in leftZone' gm-draggable='{ dragPlace: leftZone, item: item }'>{{item.name}}</li>
+                    <li class='list-group-item' ng-repeat='item in firstZone[0]' gm-draggable='{ dragPlace: firstZone[0], item: item }'>
+                        <div>
+
+                            {{item.name}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        <div class="pyramid secondZone"
+                 gm-on-drop='moveRowTo(true, secondZone[0])'>
+                 <!--gm-drop-zone='left'-->
+
+                <ul class='list-group'>
+                    <li class='list-group-item' ng-repeat='item in secondZone[0]' gm-draggable='{ dragPlace: secondZone[0], item: item }'>
+                        <div>
+
+                            {{item.name}}
+                        </div>
+                    </li>
                 </ul>
             </div>
 
 
-            <div class="pyramid block3"
-                 gm-on-drop='getDropHandler(rightZone)'>3
+            <div class="pyramid thirdZone"
+                 gm-on-drop='moveRowTo(true, thirdZone[0])'>
                  <!--gm-drop-zone='right'-->
 
                 <ul class='list-group'>
-                    <li class='list-group-item' ng-repeat='item in rightZone' gm-draggable='{ dragPlace: rightZone, item: item }'>{{item.name}}</li>
+                    <li class='list-group-item' ng-repeat='item in thirdZone[0]' gm-draggable='{ dragPlace: thirdZone[0], item: item }'>
+                        <div>
+
+                        {{item.name}}
+                        </div>
+                    </li>
                 </ul>
             </div>
+
         </div>
 
 
 
         <!--================== ROWS ========================-->
 
-        <div class='panel panel-default' gm-on-drop='getDropHandler(rowsPlace)'>
+        <div class='panel panel-default' gm-on-drop='moveRowTo(false, rowsPlace[0])'>
             <div class='panel-heading'>
                 <span class='panel-title'>rowsPlace</span>
             </div>
             <ul class='list-group'>
                 <li class='list-group-item gm-drag-handle'
-                    ng-repeat="item in rowsPlace | orderBy:'number'"
-                    gm-draggable='{ dragPlace: rowsPlace, item: item }' >
+                    ng-repeat="item in rowsPlace[0] | orderBy:'number'"
+                    gm-draggable='{ dragPlace: rowsPlace[0], item: item }' >
                     <div class="pull-left ">
                         <span class="glyphicon glyphicon-move"></span>
                     </div>
